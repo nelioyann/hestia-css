@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every CSS First Layout</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-layout="cover" data-layout-props="noPad">
+    <header data-layout="box cluster" data-layout-props="horizontal:space-between invert">
+        <h1>Every CSS-First Layouts</h1>
+        <nav data-layout="cluster">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main data-layout="with-sidebar" data-layout-props="centered side:left">
+        <aside data-layout="stack" >
+            <nav data-layout="stack box">
+                <button>Home</button>
+                <button>About</button>
+                <button data-layout-props="split">Contact</button>
+                <div data-layout="cluster" data-layout-props="horizontal:space-between">
+                    <div data-layout="box"></div>
+                    <div data-layout="box"></div>
+                </div>
+            </nav>
+        </aside>
+        <section data-layout="box stack">
+            <h2>This is a section</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea, eius, ipsa, iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus, sapiente, sed, sint, sit, tempora, vel, voluptas, voluptate.</p>
+            <h2>This is a section</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea, eius, ipsa, iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus, sapiente, sed, sint, sit, tempora, vel, voluptas, voluptate.</p>
+            <h2>This is a section</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea, eius, ipsa, iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus, sapiente, sed, sint, sit, tempora, vel, voluptas, voluptate.</p>
+            <h2>This is a section</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea, eius, ipsa, iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus, sapiente, sed, sint, sit, tempora, vel, voluptas, voluptate.</p>
+
+        </section>
+    </main>
+    <footer data-layout="box" data-layout-props="invert">
+        footer
+    </footer>
+</body>
+
+</html>
