@@ -421,6 +421,12 @@ pre {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gray-700);
 }
+
+
+section{
+  max-height: 70vh;
+  overflow-y: auto;
+}
 /* 
 [data-revealable] {
   overflow: hidden;
