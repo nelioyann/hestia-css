@@ -115,13 +115,12 @@ h6 {
   --gray-800: #27272a;
   --gray-900: #18181b;
 
-  --color-focus: var(--gray-900);
-  --color-focus-shadow: var(--gray-300);
+
 }
 
 /*----------  Box Layout  ----------*/
 [data-layout~="box"] {
-  --color-light: var(--gray-50);
+  --color-light: var(--gray-100);
   --color-dark: var(--gray-900);
   display: block;
   padding: var(--padding, var(--space-s));
@@ -131,6 +130,7 @@ h6 {
   outline: var(--border-width) transparent;
   outline-offset: calc(var(--border-width) * -1);
 }
+
 /* [data-layout~="box"] * {
   color: inherit;
 } 
@@ -236,14 +236,14 @@ h6 {
 
 
 /* Sidebar */
-[data-layout~="with-sidebar"][data-layout-props~="side:left"] > :first-child,
-[data-layout~="with-sidebar"][data-layout-props~="side:right"] > :last-child {
+[data-layout~="with-sidebar"][data-layout-props~="side:left"] > :nth-child(1),
+[data-layout~="with-sidebar"][data-layout-props~="side:right"] > :nth-child(2) {
   /** sideWidth Represents the width of the sidebar adjacent. If not set ( ) it defaults to the sidebar's content width */
   flex-basis: var(--side-width, 20rem);
   flex-grow: 1;
 }
-[data-layout~="with-sidebar"][data-layout-props~="side:left"] > :last-child,
-[data-layout~="with-sidebar"][data-layout-props~="side:right"] > :first-child {
+[data-layout~="with-sidebar"][data-layout-props~="side:left"] > :nth-child(2),
+[data-layout~="with-sidebar"][data-layout-props~="side:right"] > :nth-child(1) {
   flex-basis: 0;
   flex-grow: 999;
   /**  contentMin A CSS value. The minimum width of the content element in the horizontal configuration. Prefer % values */
@@ -270,29 +270,29 @@ h6 {
 }
 /*----------  TOKENS  ----------*/
 
-[data-layout-props~="horizontal:center"] {
+[data-layout-props~="x:center"] {
   --horizontal-alignment: center;
 }
-[data-layout-props~="horizontal:space-between"] {
+[data-layout-props~="x:between"] {
   --horizontal-alignment: space-between;
 }
-[data-layout-props~="horizontal:flex-start"] {
+[data-layout-props~="x:start"] {
   --horizontal-alignment: flex-start;
 }
-[data-layout-props~="horizontal:flex-end"] {
+[data-layout-props~="x:end"] {
   --horizontal-alignment: flex-end;
 }
 
-[data-layout-props~="vertical:center"] {
+[data-layout-props~="y:center"] {
   --vertical-alignment: center;
 }
-[data-layout-props~="vertical:space-between"] {
+[data-layout-props~="y:between"] {
   --vertical-alignment: space-between;
 }
-[data-layout-props~="vertical:flex-start"] {
+[data-layout-props~="y:start"] {
   --vertical-alignment: flex-start;
 }
-[data-layout-props~="vertical:flex-end"] {
+[data-layout-props~="y:end"] {
   --vertical-alignment: flex-end;
 }
 
@@ -311,8 +311,8 @@ h6 {
 
 
 
-[data-layout-props~="border:0"]{
-  --border-width: 0;
+[data-layout-props~="noBorder"]{
+  border-width: 0;
 }
 /*=====  End of LAYOUT UTILITIES  ======*/
 
@@ -331,6 +331,9 @@ h6 {
   --color-muted-dark: var(--gray-200);
   --border-radius: 0.2rem;
 
+
+  --color-focus: var(--gray-900);
+  --color-focus-shadow: var(--gray-300);
   /* --safe-height: auto; */
 
   --bezier-snappy: cubic-bezier(0.25, 0.46, 0.45, 0.94);
