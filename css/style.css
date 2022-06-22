@@ -225,8 +225,17 @@ h6 {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space, var(--space-s));
-  /* align-items: var(--vertical-alignment, stretch); flex-start*/
+  justify-content: stretch;
+  /* align-items: var(--vertical-alignment, stretch);  */
 }
+
+/* [data-layout~="with-sidebar"] > * {
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+
+/* Sidebar */
 [data-layout~="with-sidebar"][data-layout-props~="side:left"] > :first-child,
 [data-layout~="with-sidebar"][data-layout-props~="side:right"] > :last-child {
   /** sideWidth Represents the width of the sidebar adjacent. If not set ( ) it defaults to the sidebar's content width */
@@ -300,6 +309,11 @@ h6 {
   --space: var(--space-l);
 }
 
+
+
+[data-layout-props~="border:0"]{
+  --border-width: 0;
+}
 /*=====  End of LAYOUT UTILITIES  ======*/
 
 /*=============================================
