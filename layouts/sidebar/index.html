@@ -7,14 +7,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidebar Layout</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body{
+            overflow-x: hidden;
+            /* prevent overflow on mobile */
+        }
+        nav[data-layout~="switcher"]{
+            --threshold: clamp(9.00rem, calc(7.54rem + 6.21vw), 15.00rem);
+        }
+        [data-layout~="with-sidebar"]{
+            flex-wrap: wrap-reverse;
+        }
+        aside{
+            position: relative;
+        }
+        label {
+            cursor: pointer;
+            position: absolute;
+            right: 0em;
+            transform: translateX(100%);
+            width: max-content;
+        }
+        input,
+        input:checked~nav a>span {
+            display: none;
+        }
+        [data-layout~="icon"] {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+        input:checked~nav a [data-layout~="icon"] {
+            --space: 0;
+        }
+    </style>
 </head>
 
-<body data-layout="with-sidebar" data-layout-props="side:left ">
-    <aside data-layout="box" data-layout-props="invert border:0">
-        aside
+<body data-layout="with-sidebar" data-layout-props="side:left space:0">
+    <aside data-layout="box stack">
+        <input id="toggle-sidebar" type="checkbox"></input>
+        <label data-layout="box" data-layout-props="invert noBorder" for="toggle-sidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" data-layout="icon" viewBox="0 0 20 20">
+                <path
+                    d="M7 3H2v14h5V3zm2 0v14h9V3H9zM0 3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm3 1h3v2H3V4zm0 3h3v2H3V7zm0 3h3v2H3v-2z" />
+            </svg>
+        </label>
+        <!-- details element -->
+        <nav data-layout="switcher" data-layout-props="space:xs">
+            <a data-layout="box cluster" data-layout-props="space:0 x:center y:center" href="../../index.html">
+                <svg data-layout="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-home">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a data-layout="box cluster" data-layout-props="space:0 x:center y:center" href="../../index.html">
+                <svg data-layout="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-layers">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <span>About</span>
+
+            </a>
+        </nav>
     </aside>
-    <main data-layout="box" data-layout-props="border:0">
-        main
+    <main data-layout="box stack">
+        <div data-layout="box">Box n°1</div>
+        <div data-layout="box">Box n°2</div>
+        <div data-layout="box">Box n°3</div>
+        <div data-layout="box">Box n°4</div>
+        <div data-layout="box">Box n°5</div>
+        <div data-layout="box">Box n°6</div>
+        <div data-layout="box">Box n°7</div>
+        <div data-layout="box">Box n°8</div>
     </main>
 </body>
 

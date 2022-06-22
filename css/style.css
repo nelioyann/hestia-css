@@ -165,6 +165,7 @@ h6 {
 
 /*----------  Stack Layout  ----------*/
 [data-layout~="stack"] {
+  --space: 1em;
   display: flex;
   flex-direction: column;
   justify-content: var(--vertical-alignment, flex-start);
@@ -239,7 +240,7 @@ h6 {
 [data-layout~="with-sidebar"][data-layout-props~="side:left"] > :nth-child(1),
 [data-layout~="with-sidebar"][data-layout-props~="side:right"] > :nth-child(2) {
   /** sideWidth Represents the width of the sidebar adjacent. If not set ( ) it defaults to the sidebar's content width */
-  flex-basis: var(--side-width, 20rem);
+  flex-basis: var(--side-width, auto);
   flex-grow: 1;
 }
 [data-layout~="with-sidebar"][data-layout-props~="side:left"] > :nth-child(2),
@@ -268,6 +269,31 @@ h6 {
   /* Switch to a vertical configuration if there are more than 4 child elements */
   flex-basis: 100%;
 }
+
+
+/* The Icon */
+[data-layout~="icon"]{
+  height: 0.75em;
+  height: 1cap;
+  width: 0.75em;
+  width: 1cap;
+}
+[data-layout~="with-icon"]{
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: var(--horizontal-alignment, flex-start);
+  align-items: var(--vertical-alignment, baseline);
+}
+[data-layout~="with-icon"] [data-layout~="icon"] {
+  margin-right: var(--space, var(--space-xs));
+}
+
+
+
+
+
+
+
 /*----------  TOKENS  ----------*/
 
 [data-layout-props~="x:center"] {
@@ -307,6 +333,9 @@ h6 {
 }
 [data-layout-props~="space:l"] {
   --space: var(--space-l);
+}
+[data-layout-props~="space:xl"] {
+  --space: var(--space-xl);
 }
 
 
@@ -404,7 +433,7 @@ button:hover {
 }
 :where(button, a):where(:not(:active)):focus-visible {
   outline-offset: 5px;
-  /* box-shadow: 0 0 0 0.2rem var(--color-focus-shadow); */
+  box-shadow: 0 0 0 0.2rem var(--color-focus-shadow);
 }
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;

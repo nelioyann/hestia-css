@@ -10,7 +10,7 @@
 </head>
 
 <body data-layout="cover center" data-layout-props="noPad">
-    <header data-layout="box cluster" data-layout-props="horizontal:space-between invert">
+    <header data-layout="box cluster" data-layout-props="x:between invert noBorder">
         <h1>Every CSS-First Layouts</h1>
         <nav data-layout="cluster">
             <a href="index.html">Home</a>
@@ -20,19 +20,19 @@
     </header>
     <main data-layout="with-sidebar" data-layout-props="centered side:left">
         <aside data-layout="stack">
-            <nav data-layout="stack box" >
+            <nav data-layout="stack box" data-layout-props="noBorder">
                 <div data-layout="switcher" data-layout-props="split" style="--threshold: 18rem;">
                     <button>Home</button>
                     <button>About</button>
                     <button>Contact</button>
                 </div>
-                <div data-layout="cluster" data-layout-props="horizontal:space-between">
+                <div data-layout="cluster" data-layout-props="x:between">
                     <div data-layout="box"></div>
                     <div data-layout="box"></div>
                 </div>
             </nav>
         </aside>
-        <section data-layout="box stack">
+        <section data-layout="box stack" data-layout-props="x:start noBorder">
             <h2>This is a section</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea, eius, ipsa,
                 iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus, sapiente, sed,
@@ -49,10 +49,9 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea, eius, ipsa,
                 iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus, sapiente, sed,
                 sint, sit, tempora, vel, voluptas, voluptate.</p>
-
         </section>
     </main>
-    <footer data-layout="box" data-layout-props="invert">
+    <footer data-layout="box" data-layout-props="noBorder invert">
         footer
     </footer>
 </body>
