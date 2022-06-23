@@ -227,7 +227,7 @@ h6 {
   flex-wrap: wrap;
   gap: var(--space, var(--space-s));
   justify-content: stretch;
-  /* align-items: var(--vertical-alignment, stretch);  */
+  align-items: var(--vertical-alignment, stretch); 
 }
 
 /* [data-layout~="with-sidebar"] > * {
@@ -273,9 +273,9 @@ h6 {
 
 /* The Icon */
 [data-layout~="icon"]{
-  height: 0.75em;
+  height: var(--icon-size, 0.75em);
   height: 1cap;
-  width: 0.75em;
+  width: var(--icon-size, 0.75em);
   width: 1cap;
 }
 [data-layout~="with-icon"]{
@@ -362,7 +362,7 @@ h6 {
 
 
   --color-focus: var(--gray-900);
-  --color-focus-shadow: var(--gray-300);
+  --color-focus-shadow: var(--gray-600);
   /* --safe-height: auto; */
 
   --bezier-snappy: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -413,11 +413,11 @@ button {
 
   /* transition-property: all; */
 }
-button[data-variant="primary"] {
+[data-variant="primary"] {
   background-color: var(--gray-900);
   color: var(--gray-100);
 }
-button[data-variant="primary"]:hover {
+[data-variant="primary"]:hover {
   background-color: var(--gray-800);
 }
 input,
