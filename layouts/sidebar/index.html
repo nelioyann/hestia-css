@@ -6,62 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidebar Layout</title>
+    <meta name="description" content="Exploration of a sidebar layout">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        body{
-            overflow-x: hidden;
+        body[data-layout~="with-sidebar"]{
             --side-width: 20rem;
-            /* prevent overflow on mobile */
+            --bottom-bar-min: 8rem;
+            flex-wrap: wrap-reverse; /* Magic line to switch between sidebar and bottom bar */
+        }
+        aside[data-layout~="stack"]{
+            min-height: var(--bottom-bar-min); /* Controls the bottom bar height*/
         }
         nav[data-layout~="switcher"]{
             --space: 1rem;
-            --threshold: calc(var(--side-width) * 0.5 + 8rem);
+            --threshold: calc(var(--side-width) * 0.5 + 8rem); /* TODO: Investigate why this work*/
             width: 100%;
         }
         a[data-layout~="with-sidebar"]{
+            max-height: var(--side-width);
+            text-decoration: none;
+            font-size: var(--step-0);
             text-align: center;
-            --side-width: 1.5rem;
-
+            align-content: center; /* center content vertically Label and Icon*/
         }
-        body[data-layout~="with-sidebar"]{
-            flex-wrap: wrap-reverse;
+        aside nav a svg[data-layout~="icon"] {
+            --icon-size: var(--space-xl);
         }
-        aside{
-            position: relative;
-        }
-        label {
-            cursor: pointer;
-            position: absolute;
-            right: 0em;
-            transform: translateX(100%);
-            width: max-content;
-        }
-        input,
-        input:checked~nav a>span {
-            display: none;
-        }
-        [data-layout~="icon"] {
-            height: 1.5rem;
-            width: 1.5rem;
-        }
-        input:checked~nav a [data-layout~="icon"] {
-            --space: 0;
+        main{
+            height: 100%;
+            overflow-y: auto;
+            /* ↓ Take the bottom bar height into account to squeeze the content back into view */
+            padding-top: var(--bottom-bar-min); 
         }
     </style>
 </head>
 
-<body data-layout="with-sidebar" data-layout-props="side:left space:0">
+<body data-layout="with-sidebar" data-layout-props="side:left">
     <aside data-layout="box stack">
-        <input id="toggle-sidebar" type="checkbox"></input>
-        <label data-layout="box" data-layout-props="invert noBorder" for="toggle-sidebar">
-            <svg xmlns="http://www.w3.org/2000/svg" data-layout="icon" viewBox="0 0 20 20">
-                <path
-                    d="M7 3H2v14h5V3zm2 0v14h9V3H9zM0 3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm3 1h3v2H3V4zm0 3h3v2H3V7zm0 3h3v2H3v-2z" />
-            </svg>
-        </label>
-        <!-- details element -->
         <nav data-layout="switcher" data-layout-props="space:xs">
-            <a data-layout="box with-sidebar" data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
+            <a data-variant="primary" data-layout="box with-sidebar" data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
                 <svg data-layout="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-home">
@@ -70,7 +53,7 @@
                 </svg>
                 <span>Home</span>
             </a>
-            <a data-layout="box with-sidebar" data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
+            <a data-variant="primary" data-layout="box with-sidebar" data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
                 <svg data-layout="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-layers">
@@ -79,19 +62,20 @@
                     <polyline points="2 12 12 17 22 12"></polyline>
                 </svg>
                 <span>About</span>
-
             </a>
         </nav>
     </aside>
-    <main data-layout="box stack">
-        <div data-layout="box">Box n°1</div>
-        <div data-layout="box">Box n°2</div>
-        <div data-layout="box">Box n°3</div>
-        <div data-layout="box">Box n°4</div>
-        <div data-layout="box">Box n°5</div>
-        <div data-layout="box">Box n°6</div>
-        <div data-layout="box">Box n°7</div>
-        <div data-layout="box">Box n°8</div>
+    <main>
+        <div data-layout="stack ">
+            <div data-layout="box">Box n°1</div>
+            <div data-layout="box">Box n°2</div>
+            <div data-layout="box">Box n°3</div>
+            <div data-layout="box">Box n°4</div>
+            <div data-layout="box">Box n°5</div>
+            <div data-layout="box">Box n°6</div>
+            <div data-layout="box">Box n°7</div>
+            <div data-layout="box">Box n°8</div>
+        </div>
     </main>
 </body>
 
