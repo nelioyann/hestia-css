@@ -10,12 +10,20 @@
     <style>
         body{
             overflow-x: hidden;
+            --side-width: 20rem;
             /* prevent overflow on mobile */
         }
         nav[data-layout~="switcher"]{
-            --threshold: clamp(9.00rem, calc(7.54rem + 6.21vw), 15.00rem);
+            --space: 1rem;
+            --threshold: calc(var(--side-width) * 0.5 + 8rem);
+            width: 100%;
         }
-        [data-layout~="with-sidebar"]{
+        a[data-layout~="with-sidebar"]{
+            text-align: center;
+            --side-width: 1.5rem;
+
+        }
+        body[data-layout~="with-sidebar"]{
             flex-wrap: wrap-reverse;
         }
         aside{
@@ -53,7 +61,7 @@
         </label>
         <!-- details element -->
         <nav data-layout="switcher" data-layout-props="space:xs">
-            <a data-layout="box cluster" data-layout-props="space:0 x:center y:center" href="../../index.html">
+            <a data-layout="box with-sidebar" data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
                 <svg data-layout="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-home">
@@ -62,7 +70,7 @@
                 </svg>
                 <span>Home</span>
             </a>
-            <a data-layout="box cluster" data-layout-props="space:0 x:center y:center" href="../../index.html">
+            <a data-layout="box with-sidebar" data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
                 <svg data-layout="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-layers">
