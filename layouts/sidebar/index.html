@@ -9,54 +9,64 @@
     <meta name="description" content="Exploration of a sidebar layout">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        body[data-layout~="with-sidebar"]{
+        body[data-layout~="with-sidebar"] {
             --side-width: 20rem;
             --bottom-bar-min: 8rem;
-            flex-wrap: wrap-reverse; /* Magic line to switch between sidebar and bottom bar */
+            flex-wrap: wrap-reverse;
+            /* Magic line to switch between sidebar and bottom bar */
         }
-        aside[data-layout~="stack"]{
-            min-height: var(--bottom-bar-min); /* Controls the bottom bar height*/
+
+        aside[data-layout~="stack"] {
+            min-height: var(--bottom-bar-min);
+            box-shadow: 0px 0px 0px 1px var(--gray-300);
+            /* Controls the bottom bar height*/
         }
-        nav[data-layout~="switcher"]{
+
+        nav[data-layout~="switcher"] {
             --space: 1rem;
-            --threshold: calc(var(--side-width) * 0.5 + 8rem); /* TODO: Investigate why this work*/
+            --threshold: calc(var(--side-width) * 0.5 + 8rem);
+            /* TODO: Investigate why this work*/
             width: 100%;
         }
-        a[data-layout~="with-sidebar"]{
+
+        a[data-layout~="with-sidebar"] {
             max-height: var(--side-width);
             text-decoration: none;
             font-size: var(--step-0);
             text-align: center;
-            align-content: center; /* center content vertically Label and Icon*/
+            align-content: center;
+            /* center content vertically Label and Icon*/
         }
-        aside nav a svg[data-layout~="icon"] {
-            --icon-size: var(--space-xl);
+
+        svg[data-layout~="icon"] {
+            --icon-size: var(--space-l);
         }
-        main{
+
+        main {
             height: 100%;
             overflow-y: auto;
             /* ↓ Take the bottom bar height into account to squeeze the content back into view */
-            padding-top: var(--bottom-bar-min); 
+            padding-top: var(--bottom-bar-min);
         }
     </style>
 </head>
 
-<body data-layout="with-sidebar" data-layout-props="side:left">
-    <aside data-layout="box stack">
+<body data-layout="with-sidebar" data-layout-props="side:left space:0">
+    <aside data-layout="box stack" data-layout-props="noBorder">
         <nav data-layout="switcher" data-layout-props="space:xs">
-            <a data-variant="primary" data-layout="box with-sidebar" data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
+            <a data-variant="primary" data-layout="box with-sidebar"
+                data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
                 <svg data-layout="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-home">
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg>
                 <span>Home</span>
             </a>
-            <a data-variant="primary" data-layout="box with-sidebar" data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
+            <a data-variant="primary" data-layout="box with-sidebar"
+                data-layout-props="space:0 x:center y:center side:left" href="../../index.html">
                 <svg data-layout="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-layers">
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                     <polyline points="2 17 12 22 22 17"></polyline>
                     <polyline points="2 12 12 17 22 12"></polyline>
