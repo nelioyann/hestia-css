@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Layout</title>
+    <meta name="description" content="Exploration of a sidebar layout">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body[data-layout~="with-sidebar"] {
+            --side-width: 20rem;
+            --top-bar-min: 4rem;
+
+        }
+        aside{
+            min-height: var(--top-bar-min);
+        }
+        nav[data-layout~="switcher"] {
+            --threshold: calc(var(--side-width) * 0.5 + 8rem);
+            width: 100%;
+        }
+        main {
+            height: calc(100% - var(--top-bar-min));
+        }
+    </style>
+</head>
+
+<body data-layout="with-sidebar" data-props="side:left space:s">
+    <aside data-layout="box" data-props="invert noBorder">
+        <nav data-layout="switcher" data-props="space:xs">
+            <p>Sidebar</p>
+            <a href=".">Home</a>
+            <a href=".">Layouts</a>
+        </nav>
+    </aside>
+    <main>
+        <article data-layout="box stack center" data-props="noBorder x:start">
+            <h1>Simple sidebar</h1>
+            <p>This layout goes from a sidebar on big viewport to a bottom bar on smaller viewports</p>
+        </article>
+    </main>
+</body>
+
+</html>

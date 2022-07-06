@@ -10,42 +10,21 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body data-layout="cover" data-layout-props="noPad">
-    <header data-layout="box cluster" data-layout-props="x:between invert noBorder">
+<body data-layout="cover" data-props="noPad">
+    <header data-layout="box cluster" data-props="x:between invert noBorder">
         <h1>Hestia UI</h1>
         <nav data-layout="cluster">
-            <a href="index.html">Home</a>
             <a href="layouts/index.html">Layouts</a>
-            <a href="contact.html">Contact</a>
         </nav>
     </header>
-    <main data-layout="center" data-layout-props="centered">
-        <section data-layout="box stack" data-layout-props="x:start noBorder">
-            <div data-layout="with-sidebar" data-layout-props="side:left y:start">
-                <h2 data-layout="box" data-layout-props="invert noBorder">1. This is a section</h2>
-                <div data-layout="stack">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea,
-                        eius, ipsa,
-                        iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus,
-                        sapiente, sed,
-                        sint, sit, tempora, vel, voluptas, voluptate.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea,
-                        eius, ipsa,
-                        iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus,
-                        sapiente, sed,
-                        sint, sit, tempora, vel, voluptas, voluptate.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, doloremque, doloribus, ea,
-                        eius, ipsa,
-                        iste, laudantium, molestias, natus, nisi, quae, quisquam, quod, reiciendis, repellendus,
-                        sapiente, sed,
-                        sint, sit, tempora, vel, voluptas, voluptate.</p>
-                </div>
-            </div>
-
-        </section>
+    <main data-layout="center" data-props="centered andText">
+        <article data-layout="box stack" data-props="x:start noBorder">
+            <h1>Introduction</h1>
+            <p>Hestia UI is a collection of common layouts built with CSS.</p>
+        </article>
     </main>
-    <footer data-layout="box" data-layout-props="noBorder invert">
-        footer
+    <footer data-layout="box" data-props="noBorder invert">
+        <p>&copy; 2020 Hestia UI</p>
     </footer>
 </body>
 
